@@ -7,18 +7,16 @@ $(document).ready(function() {
             alert(err);
             return;
         }
+
+        $('#meal-name, #meal-title').text(meal.strMeal);
+
         const categoryLink = $('#category-link');
         categoryLink.attr('data-category', meal.strCategory);
         categoryLink.text(meal.strCategory);
         categoryLink.attr('href', `categoryDetail.html?category=${meal.strCategory}`);
         
-        $('#meal-name').text(meal.strMeal);
-        $('#meal-title').text(meal.strMeal); 
-
-        // Fetch and display food origin
         const foodOrigin = meal.strArea ? `${meal.strArea} food` : 'Unknown food origin';
         $('#meal-origin').text(foodOrigin);
-
         $('#meal-image').attr('src', meal.strMealThumb);
 
         // Display instructions
@@ -42,7 +40,7 @@ $(document).ready(function() {
             if (ingredient) {
                 ingredientsHTML += `
                     <span class="bg-slate-50 border border-slate-50 rounded-lg p-4 shadow hover:shadow-lg transition-shadow">
-                        <span class="font-semibold">${measure}</span> ${ingredient} <!-- Bold measure -->
+                        <span class="font-semibold">${measure}</span> ${ingredient}
                     </span>
                 `;
             }
@@ -61,5 +59,4 @@ $(document).ready(function() {
             `);
         }
     });
-    
 });

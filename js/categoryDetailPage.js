@@ -2,11 +2,7 @@ $(document).ready(function() {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryName = urlParams.get('category');
 
-    if (categoryName) {
-        document.getElementById('category-title').innerText = categoryName;
-        document.getElementById('category-name').innerText = categoryName;
-    }
-    $('#category-name').text(categoryName);
+    $('#category-name, #category-title').text(categoryName);
 
     fetchMealsByCategory(categoryName, function(err, meals) {
         if (err) {
