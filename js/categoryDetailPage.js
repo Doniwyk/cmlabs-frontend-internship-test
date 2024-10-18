@@ -2,20 +2,16 @@ $(document).ready(function() {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryName = urlParams.get('category');
 
+    if (categoryName) {
+        document.getElementById('category-title').innerText = categoryName;
+        document.getElementById('category-name').innerText = categoryName;
+    }
     $('#category-name').text(categoryName);
 
     fetchMealsByCategory(categoryName, function(err, meals) {
         if (err) {
             alert(err);
             return;
-        }
-
-        const params = new URLSearchParams(window.location.search);
-        const category = params.get('category');
-
-        if (category) {
-            document.getElementById('category-title').innerText = category;
-            document.getElementById('category-name').innerText = category;
         }
 
         let mealHTML = '';
