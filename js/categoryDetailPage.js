@@ -10,6 +10,14 @@ $(document).ready(function() {
             return;
         }
 
+        const params = new URLSearchParams(window.location.search);
+        const category = params.get('category');
+
+        if (category) {
+            document.getElementById('category-title').innerText = category;
+            document.getElementById('category-name').innerText = category;
+        }
+
         let mealHTML = '';
         meals.forEach(meal => {
             mealHTML += `
