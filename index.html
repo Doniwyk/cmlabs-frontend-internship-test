@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .featured-recipe-left {top: 20px; z-index: 10;}
+        .featured-recipe-center {z-index: 20;}
+        .featured-recipe-right {top: 20px; z-index: 10;}
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div id="navbar-placeholder"></div>
+
+    <section class="hero-section relative h-screen bg-cover bg-center">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+        <div class="relative z-10 container mx-auto h-full flex items-center justify-center text-center">
+            <div class="text-white">
+                <h1 class="text-4xl md:text-7xl font-bold">Discover. Learn. Cook.</h1>
+                <p class="text-lg md:text-2xl mt-2">Your Culinary Journey Starts Here!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto p-5 -mt-44">
+        <div class="flex flex-col md:flex-row justify-center items-center h-auto md:h-96" id="featured-recipes">
+            <!-- Left Recipe -->
+            <div class="featured-recipe bg-white featured-recipe-left w-full md:w-1/3 h-72 rounded-lg shadow-lg overflow-hidden mb-3 md:mb-0 md:-mr-3 cursor-pointer hidden md:block transform transition-transform duration-300 hover:scale-105 hover:-translate-y-4">
+                <div class="relative h-full">
+                    <img class="w-full h-full object-cover" id="left-recipe-img" style="object-fit: cover;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute top-4 left-4 p-2 bg-green-500 text-white rounded-md">
+                        <span class="font-medium">Recommended For You</span>
+                    </div>
+                    <div class="absolute bottom-0 w-full text-center pb-10">
+                        <h2 id="left-recipe-title" class="text-3xl font-bold text-gray-300"></h2>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Center Recipe -->
+            <div class="featured-recipe bg-white featured-recipe-center w-full md:w-1/3 h-80 rounded-lg shadow-lg overflow-hidden mb-3 md:mb-0 transform transition-transform duration-300 hover:scale-105 hover:-translate-y-4 cursor-pointer">
+                <div class="relative h-full">
+                    <img class="w-full h-full object-cover" id="center-recipe-img" style="object-fit: cover;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute top-4 left-4 p-2 bg-green-500 text-white rounded-md">
+                        <span class="font-medium">Recommended For You</span>
+                    </div>
+                    <div class="absolute bottom-0 w-full text-center pb-10">
+                        <h2 id="center-recipe-title" class="text-3xl font-bold text-gray-300"></h2>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Right Recipe -->
+            <div class="featured-recipe bg-white featured-recipe-right w-full md:w-1/3 h-72 rounded-lg shadow-lg overflow-hidden mb-3 md:mb-0 md:-ml-3 cursor-pointer hidden md:block transform transition-transform duration-300 hover:scale-105 hover:-translate-y-4">
+                <div class="relative h-full">
+                    <img class="w-full h-full object-cover" id="right-recipe-img" style="object-fit: cover;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute top-4 left-4 p-2 bg-green-500 text-white rounded-md">
+                        <span class="font-medium">Recommended For You</span>
+                    </div>
+                    <div class="absolute bottom-0 w-full text-center pb-10">
+                        <h2 id="right-recipe-title" class="text-3xl font-bold text-gray-300"></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Meal Categories Section -->
+    <div class="container mx-auto p-5">
+        <h1 class="text-4xl md:text-7xl font-bold mb-10 text-center">Meal Categories</h1>
+        <div id="categories" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/categoryPage.js"></script>
+    <script src="js/randomRecipes.js"></script>
+    <script>
+        fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=52835')
+            .then(response => response.json())
+            .then(data => {
+                const meal = data.meals[0];
+                document.querySelector('.hero-section').style.backgroundImage = `url(${meal.strMealThumb})`;
+            })
+            .catch(error => console.error('Error fetching meal details:', error));
+    </script>
+</body>
+</html>

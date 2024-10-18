@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Detail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div id="navbar-placeholder"></div>
+
+    <div class="container mx-auto p-5 pt-20">
+        <nav class="breadcrumb mb-5" aria-label="Breadcrumb">
+            <ol class="list-none p-0 inline-flex">
+                <li class="flex items-center">
+                    <a href="/" class="text-gray-400 hover:text-gray-900">Home</a>
+                    <svg class="w-4 h-4 mx-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <span class="text-gray-600" id="category-title"></span>
+                </li>
+            </ol>
+        </nav>
+
+        <h1 class="text-4xl font-bold mb-5" id="category-name"></h1>
+        <div id="meals" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/categoryDetailPage.js"></script>
+    <script src="js/navbar.js"></script>
+</body>
+</html>

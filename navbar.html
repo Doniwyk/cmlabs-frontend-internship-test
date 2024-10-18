@@ -1,0 +1,43 @@
+<nav id="navbar" class="bg-black bg-opacity-70 backdrop-blur-md p-4 fixed top-0 left-0 w-full z-50 transition-transform duration-300">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-white text-2xl font-bold">mealapp</a>
+        <div class="hidden md:flex space-x-4">
+            <a href="index.html" class="text-gray-300 text-lg hover:text-white">Home</a>
+            <a href="#" class="text-gray-300 text-lg hover:text-white">Categories</a>
+            <a href="#" class="text-gray-300 text-lg hover:text-white">About</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden">
+        <a href="index.html" class="block text-gray-300 hover:text-white px-4 py-2">Home</a>
+        <a href="#" class="block text-gray-300 hover:text-white px-4 py-2">Categories</a>
+        <a href="#" class="block text-gray-300 hover:text-white px-4 py-2">About</a>
+    </div>
+</nav>
+
+<style>
+.backdrop-blur-md {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+</style>
+
+<script>
+let lastScrollTop = 0;
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        navbar.style.transform = 'translateY(-100%)'; // Slide up
+    } else {
+        navbar.style.transform = 'translateY(0)'; // Slide down
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
+});
+</script>

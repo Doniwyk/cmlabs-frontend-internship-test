@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Detail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        #meal-image {
+            max-width: 100%;
+            max-height: 35rem;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <div id="navbar-placeholder"></div>
+
+    <div class="container mx-auto p-6 pt-20">
+        <div class="flex flex-col mb-10">
+            <nav class="breadcrumb mb-5" aria-label="Breadcrumb">
+                <ol class="list-none p-0 inline-flex">
+                    <li class="flex items-center">
+                        <a href="/" class="text-gray-400 hover:text-gray-900">Home</a>
+                        <svg class="w-4 h-4 mx-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </li>
+                    <li class="flex items-center">
+                        <a href="#" class="text-gray-400 hover:text-gray-900" id="category-link"></a>
+                        <svg class="w-4 h-4 mx-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </li>
+
+                    <li class="flex items-center">
+                        <span class="text-gray-600" id="meal-title">Meal Title</span>
+                    </li>
+                </ol>
+            </nav>
+
+            <h1 id="meal-name" class="text-4xl font-bold mb-4"></h1>
+            <span id="meal-origin" class="text-2xl text-gray-600"></span>
+        </div>
+
+        <img id="meal-image" class="w-full h-auto rounded-lg shadow-lg mb-4" alt="Meal Image">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="flex flex-col gap-6">
+                <!-- Container for Ingredients -->
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h2 class="text-2xl font-bold mb-4">Ingredients:</h2>
+                    <ul id="meal-ingredients" class="list-disc text-gray-700"></ul>
+                </div>
+
+                <div id="meal-video"></div>
+            </div>
+
+            <div class="flex flex-col">
+                <!-- Container for Instructions -->
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h2 class="text-2xl font-bold mb-4">Instructions:</h2>
+                    <p id="meal-instructions" class="list-disc text-gray-700"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/mealDetailPage.js"></script>
+    <script src="js/navbar.js"></script>
+</body>
+
+</html>
