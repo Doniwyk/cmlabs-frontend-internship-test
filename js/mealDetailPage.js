@@ -13,6 +13,7 @@ $(document).ready(function() {
         categoryLink.attr('href', `categoryDetail.html?category=${meal.strCategory}`);
         
         $('#meal-name').text(meal.strMeal);
+        $('#meal-title').text(meal.strMeal); 
 
         // Fetch and display food origin
         const foodOrigin = meal.strArea ? `${meal.strArea} food` : 'Unknown food origin';
